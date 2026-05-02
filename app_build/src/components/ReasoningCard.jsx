@@ -4,7 +4,7 @@ export default function ReasoningCard({ reasoning }) {
   if (!reasoning) return null
   const { steps, summary } = reasoning
   return (
-    <div className="glass-card reasoning-card">
+    <div className="paper-card paper-lavender tape-top reasoning-card">
       <div className="card-header">
         <BrainCircuit size={18} className="card-icon-svg" />
         <span className="card-title">AI Reasoning</span>

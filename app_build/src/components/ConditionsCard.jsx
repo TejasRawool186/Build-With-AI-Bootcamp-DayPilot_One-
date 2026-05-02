@@ -20,7 +20,7 @@ export default function ConditionsCard({ weather, traffic }) {
   const WeatherIcon = getWeatherIcon(weather?.condition)
 
   return (
-    <div className="glass-card conditions-card">
+    <div className="paper-card paper-blue tape-top conditions-card">
       <div className="card-header">
         <Cloud size={18} className="card-icon-svg" />
         <span className="card-title">Conditions</span>

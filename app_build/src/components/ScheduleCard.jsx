@@ -5,7 +5,7 @@ export default function ScheduleCard({ schedule }) {
   const { date, total_events, events } = schedule
 
   return (
-    <div className="glass-card schedule-card">
+    <div className="paper-card paper-yellow pin-top schedule-card">
       <div className="card-header">
         <CalendarDays size={18} className="card-icon-svg" />
         <span className="card-title">Today's Schedule</span>

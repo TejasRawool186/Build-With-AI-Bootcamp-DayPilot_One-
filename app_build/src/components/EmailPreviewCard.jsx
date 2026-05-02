@@ -25,7 +25,7 @@ export default function EmailPreviewCard({ preview, planData, userName }) {
 
   if (!preview) return null
   return (
-    <div className="glass-card email-card">
+    <div className="paper-card paper-white tape-corner email-card">
       <div className="card-header">
         <Mail size={18} className="card-icon-svg" />
         <span className="card-title">Email Briefing Preview</span>

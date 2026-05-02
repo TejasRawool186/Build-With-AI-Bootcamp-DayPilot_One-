@@ -3,7 +3,7 @@ import { Lightbulb, BrainCircuit } from 'lucide-react'
 export default function SuggestionsCard({ suggestions, dailyTip }) {
   if (!suggestions || suggestions.length === 0) return null
   return (
-    <div className="glass-card suggestions-card">
+    <div className="paper-card paper-green pin-top suggestions-card">
       <div className="card-header">
         <BrainCircuit size={18} className="card-icon-svg" />
         <span className="card-title">AI Suggestions</span>

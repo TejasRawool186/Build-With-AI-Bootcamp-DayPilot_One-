@@ -12,7 +12,7 @@ import ReasoningCard from './components/ReasoningCard'
 import EmailPreviewCard from './components/EmailPreviewCard'
 import TodoSection from './components/TodoSection'
 import CalendarView from './components/CalendarView'
-import { CalendarDays, Cloud, AlertTriangle, BrainCircuit, Mail, Loader2 } from 'lucide-react'
+import { CalendarDays, Cloud, AlertTriangle, BrainCircuit, Mail, Loader2, Sparkles } from 'lucide-react'
 
 function loadTodos() {
   try { return JSON.parse(localStorage.getItem('daypilot_todos') || '[]') }
@@ -61,8 +61,8 @@ function App() {
               <InputForm onSubmit={handleGenerate} isLoading={isLoading} />
 
               {error && (
-                <div style={{ padding: '16px', background: 'var(--pastel-coral)', color: 'var(--text-dark)', borderRadius: 'var(--radius-md)', marginBottom: '24px' }}>
-                  <strong>Error:</strong> {error}
+                <div style={{ padding: '16px', background: 'var(--paper-coral)', color: 'var(--ink-dark)', border: '2px solid var(--ink-dark)', borderRadius: 'var(--radius-paper)', marginBottom: '24px', boxShadow: '4px 4px 0px var(--ink-dark)' }}>
+                  <strong style={{ fontFamily: 'var(--font-heading)' }}>Error:</strong> {error}
                 </div>
               )}
 
@@ -91,9 +91,9 @@ function App() {
       {isLoading && (
         <div className="loading-overlay">
           <div className="loading-box">
-            <Loader2 size={48} className="spin-icon" style={{ color: 'var(--accent-blue)', marginBottom: '16px' }} />
-            <h2 style={{ color: 'var(--text-dark)', marginBottom: '8px' }}>Crafting Your Day</h2>
-            <p style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>Analyzing schedule, weather, and traffic...</p>
+            <Loader2 size={48} className="spin-icon" style={{ color: 'var(--ink-dark)', marginBottom: '16px' }} />
+            <h2 style={{ color: 'var(--ink-dark)', marginBottom: '8px', fontFamily: 'var(--font-hand)', fontSize: '2.5rem' }}>Gathering papers...</h2>
+            <p style={{ color: 'var(--ink-medium)', fontSize: '1.1rem', fontFamily: 'var(--font-heading)' }}>Analyzing schedule, weather, and traffic...</p>
           </div>
         </div>
       )}

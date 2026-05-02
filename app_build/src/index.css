@@ -1,63 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@400..700&family=Nunito:wght@400..900&display=swap');
+
 /* ═══════════════════════════════════════════════════════════════
-   DayPilot One — Soft Pastel Neumorphic Design System
+   DayPilot One — PaperPop Design System (Organized Chaos)
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Background layers - Off-white essential for Neumorphism */
-  --bg-body: #F0F3F8;
-  --bg-panel: #F0F3F8;
-  --bg-card: #F0F3F8;
-  --bg-input: #E9EDF4;
+  /* PaperPop Color Palette */
+  --paper-yellow: #FFE66D;
+  --paper-coral: #FF6B6B;
+  --paper-blue: #4D96FF;
+  --paper-green: #6BCB77;
+  --paper-lavender: #B983FF;
+  --paper-white: #FDFBF7;
+  --paper-bg: #EAE6DF; /* Desk background */
   
-  /* Soft Pastel Colors */
-  --pastel-blue: #D0E3F5;
-  --pastel-peach: #FCE0D4;
-  --pastel-lavender: #E6DEF7;
-  --pastel-mint: #D6F2E5;
-  --pastel-yellow: #FEF0D4;
-  --pastel-coral: #FAD4D4;
+  /* Inks */
+  --ink-dark: #2D2D2D;
+  --ink-medium: #4A4A4A;
+  --ink-light: #7A7A7A;
+  --ink-blue: #2B5292; /* pen ink */
+  --ink-red: #A32A2A; /* red pen */
 
-  /* Primary & Accents */
-  --accent-blue: #7BAEEB;
-  --accent-peach: #F5A988;
-  --accent-lavender: #B59AE8;
-  --accent-mint: #86D6B0;
-  
-  /* Text */
-  --text-dark: #334155;
-  --text-main: #475569;
-  --text-muted: #94A3B8;
-
-  /* Neumorphic Shadows */
-  /* Outset: Light top-left, Dark bottom-right (for protruding elements) */
-  --shadow-outset: 8px 8px 16px #D9E0E8, -8px -8px 16px #FFFFFF;
-  --shadow-outset-sm: 4px 4px 8px #D9E0E8, -4px -4px 8px #FFFFFF;
-  --shadow-outset-hover: 4px 4px 10px #D9E0E8, -4px -4px 10px #FFFFFF;
-  
-  /* Inset: Dark inner top-left, Light inner bottom-right (for sunken elements) */
-  --shadow-inset: inset 6px 6px 12px #D9E0E8, inset -6px -6px 12px #FFFFFF;
-  --shadow-inset-sm: inset 3px 3px 6px #D9E0E8, inset -3px -3px 6px #FFFFFF;
-
-  /* Sticky Note Shadows */
-  --shadow-sticky: 2px 4px 8px rgba(0,0,0,0.08), 0 10px 15px -3px rgba(0,0,0,0.05);
-
-  /* Glassmorphism */
-  --glass-bg: rgba(240, 243, 248, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
-
-  /* Spacing & Borders */
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
-  --radius-full: 9999px;
+  /* Shadows (Harsh, cut-out paper style) */
+  --shadow-paper: 4px 6px 0px rgba(0, 0, 0, 0.1);
+  --shadow-paper-hover: 8px 12px 0px rgba(0, 0, 0, 0.15);
+  --shadow-tape: 1px 2px 3px rgba(0, 0, 0, 0.1);
 
   /* Typography */
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Layout constraints */
-  --sidebar-width: 260px;
-  --right-panel-width: 300px;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Nunito', sans-serif;
+  --font-hand: 'Caveat', cursive; /* Handwritten marker feel */
+
+  /* Border Radius */
+  --radius-paper: 6px; /* slightly rounded, like a real sticky note */
+  --radius-pill: 9999px;
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --right-panel-width: 280px;
 }
 
 /* ─── Reset & Base ──────────────────────────────────────────── */
@@ -70,28 +50,56 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--bg-body);
-  color: var(--text-main);
+  background-color: var(--paper-bg);
+  /* SVG Noise Texture for the "Desk" */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  color: var(--ink-dark);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.handwritten {
+  font-family: var(--font-hand);
+  font-size: 1.2em;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
 /* ─── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-body); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--paper-bg); }
 ::-webkit-scrollbar-thumb { 
-  background: var(--text-muted); 
-  border-radius: var(--radius-full); 
-  border: 2px solid var(--bg-body);
+  background: var(--ink-light); 
+  border-radius: var(--radius-pill); 
+  border: 2px solid var(--paper-bg);
 }
 
 /* ─── Utility Animations ────────────────────────────────────── */
-@keyframes fadeInUpSoft {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-20px) rotate(5deg) scale(1.05); }
+  to { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
 }
-@keyframes pulseSoft {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+.paper-marker-highlight {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.paper-marker-highlight::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -2px;
+  right: -4px;
+  height: 40%;
+  background-color: rgba(255, 230, 109, 0.6);
+  z-index: -1;
+  transform: rotate(-1deg);
 }

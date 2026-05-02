@@ -13,7 +13,7 @@ export default function AlertsCard({ alerts, conflicts }) {
   const uniqueAlerts = allAlerts.filter((a, i, arr) => arr.findIndex(x => x.message === a.message) === i)
 
   return (
-    <div className="glass-card alerts-card">
+    <div className="paper-card paper-coral tape-corner alerts-card">
       <div className="card-header">
         <Bell size={18} className="card-icon-svg" />
         <span className="card-title">Alerts</span>

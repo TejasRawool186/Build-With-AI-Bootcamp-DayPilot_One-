@@ -1,56 +1,84 @@
 /* ═══════════════════════════════════════════════════════════════
    DayPilot One — Global Design System
-   Premium dark-mode UI with glassmorphism & micro-animations
+   Warm light theme with pastel accents & modern typography
    ═══════════════════════════════════════════════════════════════ */
 
 /* ─── CSS Variables (Design Tokens) ─────────────────────────── */
 :root {
   /* Background layers */
-  --bg-primary: #0a0a1a;
-  --bg-secondary: #0f0f23;
-  --bg-card: rgba(22, 22, 42, 0.7);
-  --bg-card-hover: rgba(30, 30, 55, 0.85);
-  --bg-glass: rgba(255, 255, 255, 0.03);
-  --bg-input: rgba(255, 255, 255, 0.05);
+  --bg-body: #F8F5F0;
+  --bg-sidebar: #FFFFFF;
+  --bg-main: #F8F5F0;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAFAF8;
+  --bg-input: #F3F0EB;
+  --bg-input-focus: #FFFFFF;
+  --bg-overlay: rgba(0, 0, 0, 0.04);
 
-  /* Accent gradient */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
-  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-  --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-  --gradient-success: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+  /* Pastel accent backgrounds */
+  --pastel-coral: #FFE8E0;
+  --pastel-sage: #E2F0E4;
+  --pastel-lavender: #EDE4F7;
+  --pastel-sky: #E0F0FF;
+  --pastel-amber: #FFF3D6;
+  --pastel-rose: #FFE0E8;
+  --pastel-mint: #D8F5E8;
+  --pastel-peach: #FFECD2;
 
-  /* Text colors */
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-accent: #818cf8;
-  --text-bright: #f8fafc;
+  /* Primary accent */
+  --accent-primary: #6366F1;
+  --accent-primary-light: #818CF8;
+  --accent-primary-bg: rgba(99, 102, 241, 0.08);
 
-  /* Accent colors */
-  --accent-indigo: #818cf8;
-  --accent-violet: #a78bfa;
-  --accent-cyan: #22d3ee;
-  --accent-green: #34d399;
-  --accent-amber: #fbbf24;
-  --accent-rose: #fb7185;
-  --accent-blue: #60a5fa;
+  /* Semantic colors */
+  --color-coral: #F97066;
+  --color-sage: #4CAF7D;
+  --color-lavender: #9B72CF;
+  --color-sky: #4A9EE8;
+  --color-amber: #E5A11C;
+  --color-rose: #E84A72;
+  --color-emerald: #10B981;
+
+  /* Priority colors */
+  --priority-urgent: #DC2626;
+  --priority-high: #EA580C;
+  --priority-medium: #D97706;
+  --priority-low: #16A34A;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  --gradient-warm: linear-gradient(135deg, #F97066 0%, #FB923C 100%);
+  --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+  --gradient-header: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #9333EA 100%);
+
+  /* Text */
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --text-accent: #6366F1;
+  --text-bright: #0F172A;
+  --text-on-dark: #F8FAFC;
 
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-card: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(129, 140, 248, 0.3);
+  --border-light: #E8E3DC;
+  --border-card: #EDE8E1;
+  --border-input: #D5D0C8;
+  --border-accent: rgba(99, 102, 241, 0.3);
 
   /* Shadows */
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
-  --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(99, 102, 241, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-sidebar: 2px 0 12px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown: 0 10px 40px rgba(0, 0, 0, 0.1);
 
   /* Spacing */
+  --radius-xs: 6px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
+  --radius-full: 100px;
 
   /* Typography */
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -58,8 +86,12 @@
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --sidebar-collapsed: 68px;
 }
 
 /* ─── Reset & Base ──────────────────────────────────────────── */
@@ -80,27 +112,11 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-primary);
+  background: var(--bg-body);
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-/* Animated background */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 60% at 50% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 #root {
@@ -111,28 +127,23 @@ body::before {
 /* ─── Scrollbar ─────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(129, 140, 248, 0.3);
+  background: var(--border-light);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(129, 140, 248, 0.5);
+  background: var(--text-muted);
 }
 
 /* ─── Utility Animations ────────────────────────────────────── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -141,37 +152,23 @@ body::before {
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
-  }
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 @keyframes spin-slow {
@@ -179,18 +176,12 @@ body::before {
   to { transform: rotate(360deg); }
 }
 
-@keyframes typewriter-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes stepReveal {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes stepReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
+@keyframes checkmark {
+  from { stroke-dashoffset: 24; }
+  to { stroke-dashoffset: 0; }
 }

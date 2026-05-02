@@ -1,55 +1,36 @@
+import { Bell, AlertTriangle, CheckCircle2, CloudRain, Car, Train, Info } from 'lucide-react'
+
+const ALERT_ICONS = {
+  weather: CloudRain, traffic: Car, conflict: AlertTriangle, transit: Train, general: Info,
+}
+
 export default function AlertsCard({ alerts, conflicts }) {
   const allAlerts = [
-    ...(conflicts?.conflicts || []).map(c => ({
-      type: 'conflict',
-      icon: c.icon || '⚠️',
-      message: c.message
-    })),
-    ...(conflicts?.warnings || []).map(w => ({
-      type: w.type || 'general',
-      icon: w.icon || '⚠️',
-      message: w.message
-    })),
+    ...(conflicts?.conflicts || []).map(c => ({ type: 'conflict', message: c.message })),
+    ...(conflicts?.warnings || []).map(w => ({ type: w.type || 'general', message: w.message })),
     ...(alerts || [])
   ]
-
-  // Deduplicate by message
-  const uniqueAlerts = allAlerts.filter((alert, i, arr) =>
-    arr.findIndex(a => a.message === alert.message) === i
-  )
+  const uniqueAlerts = allAlerts.filter((a, i, arr) => arr.findIndex(x => x.message === a.message) === i)
 
   return (
     <div className="glass-card alerts-card">
       <div className="card-header">
-        <span className="card-icon">🔔</span>
+        <Bell size={18} className="card-icon-svg" />
         <span className="card-title">Alerts</span>
-        {uniqueAlerts.length > 0 && (
-          <span
-            className="card-badge"
-            style={{
-              background: 'rgba(239, 68, 68, 0.15)',
-              color: 'var(--accent-rose)'
-            }}
-          >
-            {uniqueAlerts.length}
-          </span>
-        )}
+        {uniqueAlerts.length > 0 && <span className="card-badge badge-red">{uniqueAlerts.length}</span>}
       </div>
-
       {uniqueAlerts.length === 0 ? (
-        <div className="no-alerts">
-          ✅ No alerts — your day looks great!
-        </div>
+        <div className="no-alerts"><CheckCircle2 size={20} /> No alerts &mdash; your day looks great!</div>
       ) : (
-        uniqueAlerts.map((alert, i) => (
-          <div
-            className={`alert-item alert-${alert.type || 'general'}`}
-            key={i}
-          >
-            <span className="alert-icon">{alert.icon || '⚠️'}</span>
-            <span className="alert-message">{alert.message}</span>
-          </div>
-        ))
+        uniqueAlerts.map((alert, i) => {
+          const Icon = ALERT_ICONS[alert.type] || Info
+          return (
+            <div className={`alert-item alert-${alert.type || 'general'}`} key={i}>
+              <Icon size={16} className="alert-icon-svg" />
+              <span className="alert-message">{alert.message}</span>
+            </div>
+          )
+        })
       )}
     </div>
   )

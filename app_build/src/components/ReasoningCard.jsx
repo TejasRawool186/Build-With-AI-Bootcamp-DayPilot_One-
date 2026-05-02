@@ -1,31 +1,18 @@
+import { BrainCircuit, Target } from 'lucide-react'
+
 export default function ReasoningCard({ reasoning }) {
   if (!reasoning) return null
-
   const { steps, summary } = reasoning
-
   return (
     <div className="glass-card reasoning-card">
       <div className="card-header">
-        <span className="card-icon">🧠</span>
+        <BrainCircuit size={18} className="card-icon-svg" />
         <span className="card-title">AI Reasoning</span>
-        <span
-          className="card-badge"
-          style={{
-            background: 'rgba(139, 92, 246, 0.15)',
-            color: 'var(--accent-violet)'
-          }}
-        >
-          {steps?.length || 0} steps
-        </span>
+        <span className="card-badge badge-violet">{steps?.length || 0} steps</span>
       </div>
-
       <div className="reasoning-steps">
         {steps && steps.map((step, i) => (
-          <div
-            className="reasoning-step"
-            key={i}
-            style={{ animationDelay: `${i * 0.2}s` }}
-          >
+          <div className="reasoning-step" key={i} style={{ animationDelay: `${i * 0.15}s` }}>
             <div className="step-number">{step.step || i + 1}</div>
             <div className="step-content">
               <div className="step-title">{step.title}</div>
@@ -34,11 +21,10 @@ export default function ReasoningCard({ reasoning }) {
           </div>
         ))}
       </div>
-
       {summary && (
         <div className="reasoning-summary">
-          <span className="reasoning-summary-label">🎯 Conclusion:</span>
-          {summary}
+          <Target size={16} className="summary-icon" />
+          <div><span className="reasoning-summary-label">Conclusion:</span> {summary}</div>
         </div>
       )}
     </div>

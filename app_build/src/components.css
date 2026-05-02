@@ -1,0 +1,78 @@
+/* Todo Section */
+.todo-section { animation: fadeInUp 0.4s ease-out; }
+.todo-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+.section-title { display:flex; align-items:center; gap:8px; font-size:1.4rem; font-weight:700; color:var(--text-bright); }
+.section-icon { color:var(--accent-primary); }
+.task-count { font-size:0.82rem; color:var(--text-muted); background:var(--bg-input); padding:4px 12px; border-radius:var(--radius-full); }
+.todo-form { background:var(--bg-card); border:1px solid var(--border-card); border-radius:var(--radius-lg); padding:20px; margin-bottom:16px; box-shadow:var(--shadow-card); }
+.todo-form-row { display:flex; gap:10px; margin-bottom:12px; }
+.todo-input { flex:1; padding:10px 14px; border:1px solid var(--border-input); border-radius:var(--radius-sm); font-size:0.92rem; font-family:var(--font-body); background:var(--bg-input); color:var(--text-primary); outline:none; transition:var(--transition-fast); }
+.todo-input:focus { border-color:var(--accent-primary); background:var(--bg-input-focus); box-shadow:0 0 0 3px var(--accent-primary-bg); }
+.todo-add-btn { display:flex; align-items:center; gap:6px; padding:10px 20px; background:var(--gradient-primary); color:#fff; border:none; border-radius:var(--radius-sm); font-weight:600; font-family:var(--font-body); cursor:pointer; transition:var(--transition-smooth); }
+.todo-add-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(99,102,241,0.3); }
+.todo-form-meta { display:flex; gap:12px; flex-wrap:wrap; }
+.meta-group { display:flex; align-items:center; gap:6px; color:var(--text-secondary); }
+.meta-select,.meta-input { padding:6px 10px; border:1px solid var(--border-input); border-radius:var(--radius-xs); font-size:0.82rem; font-family:var(--font-body); background:var(--bg-input); color:var(--text-primary); outline:none; }
+.meta-select:focus,.meta-input:focus { border-color:var(--accent-primary); }
+.todo-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+.filter-group { display:flex; align-items:center; gap:6px; color:var(--text-muted); }
+.filter-btn { padding:5px 12px; border:1px solid var(--border-light); border-radius:var(--radius-full); font-size:0.78rem; font-family:var(--font-body); background:transparent; color:var(--text-secondary); cursor:pointer; transition:var(--transition-fast); }
+.filter-btn.active { background:var(--accent-primary); color:#fff; border-color:var(--accent-primary); }
+.sort-btn { display:flex; align-items:center; gap:4px; padding:5px 12px; border:1px solid var(--border-light); border-radius:var(--radius-full); font-size:0.78rem; font-family:var(--font-body); background:transparent; color:var(--text-secondary); cursor:pointer; }
+.todo-list { display:flex; flex-direction:column; gap:8px; }
+.todo-empty { text-align:center; padding:48px 20px; color:var(--text-muted); }
+.todo-empty p { margin-top:12px; }
+.todo-item { display:flex; align-items:center; gap:12px; padding:14px 16px; background:var(--bg-card); border:1px solid var(--border-card); border-radius:var(--radius-md); transition:var(--transition-smooth); box-shadow:var(--shadow-sm); }
+.todo-item:hover { box-shadow:var(--shadow-hover); transform:translateY(-1px); }
+.todo-item.completed { opacity:0.6; }
+.todo-item.completed .todo-title { text-decoration:line-through; color:var(--text-muted); }
+.todo-item.overdue { border-left:3px solid var(--priority-urgent); }
+.todo-check { background:none; border:none; cursor:pointer; color:var(--text-muted); padding:0; display:flex; transition:var(--transition-fast); }
+.todo-item.completed .todo-check { color:var(--color-emerald); }
+.todo-content { flex:1; min-width:0; }
+.todo-title { font-weight:500; font-size:0.92rem; color:var(--text-primary); }
+.todo-meta-row { display:flex; gap:8px; margin-top:4px; flex-wrap:wrap; }
+.priority-pill { font-size:0.7rem; padding:2px 8px; border-radius:var(--radius-full); font-weight:600; }
+.due-pill,.time-pill { display:flex; align-items:center; gap:4px; font-size:0.72rem; color:var(--text-secondary); background:var(--bg-input); padding:2px 8px; border-radius:var(--radius-full); }
+.due-pill.overdue { color:var(--priority-urgent); background:#FEE2E2; }
+.todo-delete { background:none; border:none; cursor:pointer; color:var(--text-muted); padding:4px; border-radius:var(--radius-xs); transition:var(--transition-fast); }
+.todo-delete:hover { color:var(--priority-urgent); background:#FEE2E2; }
+
+/* Calendar */
+.calendar-section { animation: fadeInUp 0.4s ease-out; }
+.calendar-header-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+.today-btn { padding:6px 16px; border:1px solid var(--border-input); border-radius:var(--radius-full); font-size:0.82rem; font-family:var(--font-body); background:var(--bg-card); cursor:pointer; color:var(--text-secondary); transition:var(--transition-fast); }
+.today-btn:hover { border-color:var(--accent-primary); color:var(--accent-primary); }
+.calendar-layout { display:grid; grid-template-columns:1fr 280px; gap:20px; }
+.calendar-main { background:var(--bg-card); border:1px solid var(--border-card); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
+.calendar-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+.cal-nav-btn { background:none; border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:6px; cursor:pointer; color:var(--text-secondary); display:flex; transition:var(--transition-fast); }
+.cal-nav-btn:hover { border-color:var(--accent-primary); color:var(--accent-primary); }
+.cal-month-title { font-size:1.1rem; font-weight:700; color:var(--text-bright); }
+.calendar-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+.cal-day-name { text-align:center; font-size:0.72rem; font-weight:600; color:var(--text-muted); text-transform:uppercase; padding:8px 0; }
+.cal-cell { aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:var(--radius-sm); font-size:0.85rem; cursor:pointer; border:2px solid transparent; background:none; font-family:var(--font-body); color:var(--text-primary); transition:var(--transition-fast); gap:2px; }
+.cal-cell.empty { cursor:default; }
+.cal-cell:not(.empty):hover { background:var(--bg-input); }
+.cal-cell.today { background:var(--accent-primary-bg); color:var(--accent-primary); font-weight:700; }
+.cal-cell.selected { border-color:var(--accent-primary); background:var(--accent-primary); color:#fff; }
+.cal-cell.selected.today { background:var(--accent-primary); color:#fff; }
+.cal-dots { display:flex; gap:3px; }
+.cal-dot { width:5px; height:5px; border-radius:50%; }
+.event-dot { background:var(--color-coral); }
+.todo-dot { background:var(--accent-primary); }
+.calendar-detail { background:var(--bg-card); border:1px solid var(--border-card); border-radius:var(--radius-lg); padding:20px; box-shadow:var(--shadow-card); height:fit-content; }
+.detail-date { font-size:1rem; font-weight:700; color:var(--text-bright); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.today-badge { font-size:0.7rem; background:var(--accent-primary); color:#fff; padding:2px 8px; border-radius:var(--radius-full); font-weight:600; }
+.detail-group { margin-bottom:16px; }
+.detail-label { font-size:0.75rem; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px; }
+.detail-event { display:flex; gap:10px; padding:8px; background:var(--pastel-sky); border-radius:var(--radius-sm); margin-bottom:6px; }
+.de-time { font-size:0.78rem; font-weight:600; color:var(--color-sky); font-family:var(--font-mono); white-space:nowrap; }
+.de-info { min-width:0; }
+.de-name { font-size:0.82rem; font-weight:600; color:var(--text-primary); }
+.de-loc { font-size:0.72rem; color:var(--text-secondary); }
+.detail-todo { display:flex; align-items:center; gap:8px; padding:6px 8px; background:var(--pastel-lavender); border-radius:var(--radius-sm); margin-bottom:4px; font-size:0.82rem; }
+.detail-todo.done { opacity:0.5; text-decoration:line-through; }
+.dt-priority { width:8px; height:8px; border-radius:50%; background:var(--accent-primary); flex-shrink:0; }
+.detail-empty { text-align:center; padding:24px; color:var(--text-muted); font-size:0.88rem; }
+@media(max-width:768px) { .calendar-layout { grid-template-columns:1fr; } }

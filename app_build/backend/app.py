@@ -122,6 +122,7 @@ def generate_plan():
         response = {
             "success": True,
             "user_name": user_name,
+            "email": email,
             "schedule": schedule,
             "weather": weather,
             "traffic": traffic,

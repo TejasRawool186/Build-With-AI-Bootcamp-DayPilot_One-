@@ -18,9 +18,9 @@ export default function SuggestionsCard({ suggestions, dailyTip }) {
         ))}
       </div>
       {dailyTip && (
-        <div className="daily-tip">
-          <Lightbulb size={16} className="tip-icon" />
-          <div><span className="daily-tip-label">Tip of the Day:</span> {dailyTip}</div>
+        <div className="daily-tip" style={{ marginTop: '20px', padding: '16px', background: 'var(--pastel-yellow)', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-inset-sm)', display: 'flex', gap: '12px' }}>
+          <Lightbulb size={20} color="var(--accent-peach)" style={{ flexShrink: 0 }} />
+          <div><span style={{ fontWeight: 700, color: 'var(--accent-peach)', display: 'block', marginBottom: '4px' }}>Tip of the Day:</span> <span style={{ fontSize: '0.85rem' }}>{dailyTip}</span></div>
         </div>
       )}
     </div>

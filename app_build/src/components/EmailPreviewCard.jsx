@@ -32,8 +32,8 @@ export default function EmailPreviewCard({ preview, planData, userName }) {
       </div>
       <div className="email-preview-box">{preview}</div>
       <div className="email-actions">
-        <button id="send-email-btn" className="send-email-btn" onClick={handleSendEmail} disabled={sending}>
-          {sending ? (<><Loader2 size={16} className="spin-icon" /> Sending...</>) : (<><Send size={16} /> Send Email Briefing</>)}
+        <button id="send-email-btn" className="generate-btn" style={{ width: 'auto', padding: '12px 24px', background: 'var(--pastel-mint)', color: 'var(--accent-mint)' }} onClick={handleSendEmail} disabled={sending}>
+          {sending ? (<><Loader2 size={18} className="spin-icon" /> Sending...</>) : (<><Send size={18} /> Send Email Briefing</>)}
         </button>
         {status && (
           <span className={`email-status ${status.type}`}>

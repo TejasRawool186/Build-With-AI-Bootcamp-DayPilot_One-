@@ -1,187 +1,97 @@
 /* ═══════════════════════════════════════════════════════════════
-   DayPilot One — Global Design System
-   Warm light theme with pastel accents & modern typography
+   DayPilot One — Soft Pastel Neumorphic Design System
    ═══════════════════════════════════════════════════════════════ */
 
-/* ─── CSS Variables (Design Tokens) ─────────────────────────── */
 :root {
-  /* Background layers */
-  --bg-body: #F8F5F0;
-  --bg-sidebar: #FFFFFF;
-  --bg-main: #F8F5F0;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #FAFAF8;
-  --bg-input: #F3F0EB;
-  --bg-input-focus: #FFFFFF;
-  --bg-overlay: rgba(0, 0, 0, 0.04);
+  /* Background layers - Off-white essential for Neumorphism */
+  --bg-body: #F0F3F8;
+  --bg-panel: #F0F3F8;
+  --bg-card: #F0F3F8;
+  --bg-input: #E9EDF4;
+  
+  /* Soft Pastel Colors */
+  --pastel-blue: #D0E3F5;
+  --pastel-peach: #FCE0D4;
+  --pastel-lavender: #E6DEF7;
+  --pastel-mint: #D6F2E5;
+  --pastel-yellow: #FEF0D4;
+  --pastel-coral: #FAD4D4;
 
-  /* Pastel accent backgrounds */
-  --pastel-coral: #FFE8E0;
-  --pastel-sage: #E2F0E4;
-  --pastel-lavender: #EDE4F7;
-  --pastel-sky: #E0F0FF;
-  --pastel-amber: #FFF3D6;
-  --pastel-rose: #FFE0E8;
-  --pastel-mint: #D8F5E8;
-  --pastel-peach: #FFECD2;
-
-  /* Primary accent */
-  --accent-primary: #6366F1;
-  --accent-primary-light: #818CF8;
-  --accent-primary-bg: rgba(99, 102, 241, 0.08);
-
-  /* Semantic colors */
-  --color-coral: #F97066;
-  --color-sage: #4CAF7D;
-  --color-lavender: #9B72CF;
-  --color-sky: #4A9EE8;
-  --color-amber: #E5A11C;
-  --color-rose: #E84A72;
-  --color-emerald: #10B981;
-
-  /* Priority colors */
-  --priority-urgent: #DC2626;
-  --priority-high: #EA580C;
-  --priority-medium: #D97706;
-  --priority-low: #16A34A;
-
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
-  --gradient-warm: linear-gradient(135deg, #F97066 0%, #FB923C 100%);
-  --gradient-success: linear-gradient(135deg, #10B981 0%, #34D399 100%);
-  --gradient-header: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #9333EA 100%);
-
+  /* Primary & Accents */
+  --accent-blue: #7BAEEB;
+  --accent-peach: #F5A988;
+  --accent-lavender: #B59AE8;
+  --accent-mint: #86D6B0;
+  
   /* Text */
-  --text-primary: #1E293B;
-  --text-secondary: #64748B;
+  --text-dark: #334155;
+  --text-main: #475569;
   --text-muted: #94A3B8;
-  --text-accent: #6366F1;
-  --text-bright: #0F172A;
-  --text-on-dark: #F8FAFC;
 
-  /* Borders */
-  --border-light: #E8E3DC;
-  --border-card: #EDE8E1;
-  --border-input: #D5D0C8;
-  --border-accent: rgba(99, 102, 241, 0.3);
+  /* Neumorphic Shadows */
+  /* Outset: Light top-left, Dark bottom-right (for protruding elements) */
+  --shadow-outset: 8px 8px 16px #D9E0E8, -8px -8px 16px #FFFFFF;
+  --shadow-outset-sm: 4px 4px 8px #D9E0E8, -4px -4px 8px #FFFFFF;
+  --shadow-outset-hover: 4px 4px 10px #D9E0E8, -4px -4px 10px #FFFFFF;
+  
+  /* Inset: Dark inner top-left, Light inner bottom-right (for sunken elements) */
+  --shadow-inset: inset 6px 6px 12px #D9E0E8, inset -6px -6px 12px #FFFFFF;
+  --shadow-inset-sm: inset 3px 3px 6px #D9E0E8, inset -3px -3px 6px #FFFFFF;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
-  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-sidebar: 2px 0 12px rgba(0, 0, 0, 0.04);
-  --shadow-dropdown: 0 10px 40px rgba(0, 0, 0, 0.1);
+  /* Sticky Note Shadows */
+  --shadow-sticky: 2px 4px 8px rgba(0,0,0,0.08), 0 10px 15px -3px rgba(0,0,0,0.05);
 
-  /* Spacing */
-  --radius-xs: 6px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-full: 100px;
+  /* Glassmorphism */
+  --glass-bg: rgba(240, 243, 248, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Spacing & Borders */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
 
   /* Typography */
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* Layout */
-  --sidebar-width: 240px;
-  --sidebar-collapsed: 68px;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Layout constraints */
+  --sidebar-width: 260px;
+  --right-panel-width: 300px;
 }
 
 /* ─── Reset & Base ──────────────────────────────────────────── */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-body);
-  color: var(--text-primary);
+  background-color: var(--bg-body);
+  color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-#root {
-  position: relative;
-  z-index: 1;
-}
-
 /* ─── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-light);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-body); }
+::-webkit-scrollbar-thumb { 
+  background: var(--text-muted); 
+  border-radius: var(--radius-full); 
+  border: 2px solid var(--bg-body);
 }
 
 /* ─── Utility Animations ────────────────────────────────────── */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(16px); }
+@keyframes fadeInUpSoft {
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes stepReveal {
-  from { opacity: 0; transform: translateX(-16px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes checkmark {
-  from { stroke-dashoffset: 24; }
-  to { stroke-dashoffset: 0; }
+@keyframes pulseSoft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }

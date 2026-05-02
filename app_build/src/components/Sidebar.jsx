@@ -1,4 +1,4 @@
-import { Compass, CalendarDays, ListTodo, Settings, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Compass, CalendarDays, ListTodo, Settings } from 'lucide-react'
 
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: Compass },
@@ -6,12 +6,12 @@ const navItems = [
   { id: 'calendar', label: 'Calendar', icon: CalendarDays },
 ]
 
-export default function Sidebar({ activeView, onViewChange, collapsed, onToggle }) {
+export default function Sidebar({ activeView, onViewChange }) {
   return (
-    <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+    <aside className="sidebar">
       <div className="sidebar-brand">
-        <Compass className="brand-icon" size={28} strokeWidth={1.8} />
-        {!collapsed && <span className="brand-text">DayPilot</span>}
+        <Compass className="brand-icon" size={28} strokeWidth={2} />
+        <span className="brand-text">DayPilot</span>
       </div>
 
       <nav className="sidebar-nav">
@@ -22,19 +22,16 @@ export default function Sidebar({ activeView, onViewChange, collapsed, onToggle 
             onClick={() => onViewChange(item.id)}
             title={item.label}
           >
-            <item.icon size={20} strokeWidth={1.8} />
-            {!collapsed && <span>{item.label}</span>}
+            <item.icon size={20} strokeWidth={2} />
+            <span>{item.label}</span>
           </button>
         ))}
       </nav>
 
       <div className="sidebar-footer">
         <button className="nav-item" title="Settings">
-          <Settings size={20} strokeWidth={1.8} />
-          {!collapsed && <span>Settings</span>}
-        </button>
-        <button className="sidebar-toggle" onClick={onToggle}>
-          {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+          <Settings size={20} strokeWidth={2} />
+          <span>Settings</span>
         </button>
       </div>
     </aside>
